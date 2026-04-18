@@ -52,6 +52,10 @@ function birthdayCakeCandles(candles) {
 console.log(birthdayCakeCandles([3,1,2,3]))
 
 
+// 3.
+// Complete the TIMECONVERSION function with the following parameter(s):
+// String s: a time in  12 hour format
+// return string : the time in 24 hour format
 
 function timeConversion(s) {
     let period = s.slice(-2)
