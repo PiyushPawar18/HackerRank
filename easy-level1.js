@@ -72,3 +72,40 @@ function timeConversion(s) {
 
 }
 console.log(timeConversion("07:05:45PM"))
+
+// 4.
+//  84 round to 85 (85 - 84 is less than 3)
+//  29  do not round (result is less than 38)
+//  57 do not round (60 - 57 is 3 or higher)
+
+function gradingStudents(grades) {
+    return grades.map(grade => {
+        if (grade < 38) return grade;
+        const nextMultiple = Math.ceil(grade / 5) * 5;
+        return (nextMultiple - grade) < 3 ? nextMultiple : grade;
+    });
+}
+function gradingStudents(grades) {
+    return grades.map(grade => {
+        if (grade < 38) return grade;
+        const remainder = grade % 5;
+        // remainder 0 → already multiple of 5 (no change)
+        // remainder 3 or 4 → difference to next multiple is < 3 → round up
+        if (remainder === 3 || remainder === 4) {
+            return grade + (5 - remainder);
+        }
+        return grade;
+    });
+}
+function gradingStudents(grades) {
+    return grades.map(grade => {
+        if (grade < 38 || grade % 5 === 0) return grade; // fix: 38 not 37
+
+        const digits = String(grade).padStart(2, '0'); // fix: handles single digits
+        const unitDigit = Number(digits[1]);            // fix: convert to Number
+
+        if (unitDigit >= 3 && unitDigit <= 4) return grade + (5 - unitDigit);  // round to x5
+        if (unitDigit >= 8 && unitDigit <= 9) return grade + (10 - unitDigit); // round to x0
+        return grade;
+    });
+}
