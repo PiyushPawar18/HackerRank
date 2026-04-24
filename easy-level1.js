@@ -125,3 +125,68 @@ function extraLongFactorials(n) {
     console.log(result.toString())
 }
 extraLongFactorials(25)
+
+
+//6.
+// 11 2 4  
+// 4 5 6
+// 10 8 -12
+
+// 11
+//    5
+//      -12   [11+5-12 = 4]
+//      4    
+//    5
+// 10         [10+5+4 = 19]
+// Output ===> |4-19| = 15 
+function diagonalDifference(arr) {
+    console.log(arr)
+    let a = 0;
+    let b = arr.length-1;
+    let leftToRight = 0 
+    let RightToLeft = 0
+    for(let i=0;i<arr.length;i++){
+            leftToRight += arr[i][a]
+            RightToLeft += arr[i][b]
+        a++
+        b--
+    }
+    let result = leftToRight-RightToLeft
+    return Math.abs(result)
+}
+function diagonalDifferenceCleaner(arr) {
+    let leftToRight = 0;
+    let rightToLeft = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        leftToRight += arr[i][i]; // primary diagonal
+        rightToLeft += arr[i][arr.length - 1 - i]; // secondary diagonal
+    }
+
+    return Math.abs(leftToRight - rightToLeft);
+}
+
+
+// 7
+//  input = [1 2 3 4 5 4 3 2 1 3 4]
+//  output = 3 ({ '1': 2, '2': 2, '3': 3, '4': 3, '5': 1 })
+function migratoryBirds(arr) {
+    let result = {}
+    for(let i=0;i<arr.length;i++){
+        if(result[arr[i]] === undefined){
+            result[arr[i]] = 1
+        }
+        else {
+            result[arr[i]]++
+        }
+    }
+    let max=-1
+    let output=0
+    for(let key in result){
+        if(result[key]>max){
+            max=result[key]
+            output=Number(key)
+        }
+    }
+    return output
+}
