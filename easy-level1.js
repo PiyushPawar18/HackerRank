@@ -207,3 +207,37 @@ function kangaroo(x1, v1, x2, v2) {
     }
     return "NO"
 }
+
+
+function getTotalX(a, b) {
+    let start = Math.max(...a);  // better naming
+    let end = Math.min(...b);
+
+    let ans = 0;
+
+    for (let x = start; x <= end; x++) {
+        let valid = true;
+
+        // Check condition 1
+        for (let val of a) {
+            if (x % val !== 0) {
+                valid = false;
+                break; // important
+            }
+        }
+
+        // Check condition 2
+        if (valid) {
+            for (let val of b) {
+                if (val % x !== 0) {
+                    valid = false;
+                    break; // important
+                }
+            }
+        }
+
+        if (valid) ans++;
+    }
+
+    return ans;
+}
