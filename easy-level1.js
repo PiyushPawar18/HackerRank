@@ -190,3 +190,20 @@ function migratoryBirds(arr) {
     }
     return output
 }
+
+
+//8
+// Kangaroo 1: Starts at position x1 , Jumps v1 meters each time
+// Kangaroo 2: Starts at position x2 , Jumps v2 meters each time
+// Will they ever land on the same position at the same time?
+// If yes → "YES"
+// If no → "NO"
+function kangaroo(x1, v1, x2, v2) {
+    while(x1<=x2){
+        if(x1===x2) return "YES"
+        if(x1<x2 && (v1<v2 || v1===v2 )) return "NO"
+        x1 += v1 
+        x2 += v2
+    }
+    return "NO"
+}
