@@ -258,15 +258,13 @@ function dayOfProgrammer(year) {
 }
 
 function bonAppetit(bill, k, b) {
-    let charged = 0
-    charged=(bill.reduce((a,b) => a+b,0) - bill[k])/2
-    if(b-charged === 0){
-        console.log("Bon Appetit")
-    }
-    else{
-        
-    console.log(b-charged) 
-    }
+    let total = bill.reduce((sum, val) => sum + val, 0);
+    let actualShare = (total - bill[k]) / 2;
 
+    if (b === actualShare) {
+        console.log("Bon Appetit");
+    } else {
+        console.log(b - actualShare);
+    }
 }
 
