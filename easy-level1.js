@@ -256,3 +256,17 @@ function dayOfProgrammer(year) {
         return `13.09.${year}`;
     }
 }
+
+function bonAppetit(bill, k, b) {
+    let charged = 0
+    charged=(bill.reduce((a,b) => a+b,0) - bill[k])/2
+    if(b-charged === 0){
+        console.log("Bon Appetit")
+    }
+    else{
+        
+    console.log(b-charged) 
+    }
+
+}
+
