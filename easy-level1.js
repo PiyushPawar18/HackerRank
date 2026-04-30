@@ -268,3 +268,42 @@ function bonAppetit(bill, k, b) {
     }
 }
 
+// 12.You are given an array where each number represents a sock color. Count how many matching pairs of the same color can be made.
+// Input: [10, 20, 20, 10, 10, 30, 50, 10, 20]
+// Pairs:
+// 10,10 → 1 pair
+// 10,10 → 1 pair
+// 20,20 → 1 pair
+
+// Output: 3
+function sockMerchant(n, ar) {
+    let freq = {};
+    let result = 0;
+
+    for (let sock of ar) {
+        freq[sock] = (freq[sock] || 0) + 1;
+    }
+
+    for (let key in freq) {
+        result += Math.floor(freq[key] / 2);
+    }
+
+    return result;
+}
+function sockMerchant(n, ar) {
+    let obj = {}
+    for(let i=0;i<n;i++){
+        if(obj[ar[i]] == undefined ){
+            obj[ar[i]] = 1
+        }
+        else {
+            obj[ar[i]]++
+        }
+    }
+    let array = Object.values(obj)
+    let result = 0
+    for(let i=0;i<array.length;i++){
+        result += Math.floor(array[i]/2)
+    }
+    return result
+}
