@@ -307,3 +307,14 @@ function sockMerchant(n, ar) {
     }
     return result
 }
+
+
+function pageCount(n, p) {
+    let a = n-1
+    let b = p-1
+    let total_page = Math.round(a/2)+1
+    let current_page = Math.round(b/2)+1
+    a = current_page - 1
+    b = total_page - current_page 
+    return Math.min(a,b)
+}
