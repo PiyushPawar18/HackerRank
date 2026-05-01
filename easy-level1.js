@@ -318,3 +318,24 @@ function pageCount(n, p) {
     b = total_page - current_page 
     return Math.min(a,b)
 }
+
+// An avid hiker records their hike using a string of steps. Each step is either:
+// 'U' → step up (+1 altitude)
+// 'D' → step down (−1 altitude)
+// The hike always starts and ends at sea level (altitude = 0).
+function countingValleys(steps, path) {
+    let result = 0
+    let level = 0
+    for(let i=0;i<steps;i++){
+        if(path[i]==='U'){
+           level++
+           if(level===0){
+            result++
+           }
+        }
+        else{
+            level--
+        }
+    }
+    return result
+}
