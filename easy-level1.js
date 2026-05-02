@@ -339,3 +339,4 @@ function countingValleys(steps, path) {
     }
     return result
 }
+
