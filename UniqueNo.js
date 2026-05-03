@@ -37,3 +37,5 @@ function getMoneySpent(keyboards, drives, b) {
     }
     return result
 }
+
+// fw
